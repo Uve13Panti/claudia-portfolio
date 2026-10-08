@@ -1,0 +1,43 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+# Once Netlify Identity + Git Gateway are enabled (see README),
+# Claudia logs in at yoursite.com/admin and edits everything below
+# through simple forms — no code, no GitHub.
+
+collections:
+  - name: "work"
+    label: "Work / Portfolio"
+    label_singular: "Piece"
+    description: "Add or remove looks, shoots and design pieces shown on the Work page."
+    files:
+      - name: "work"
+        label: "Portfolio items"
+        file: "data/work.json"
+        fields:
+          - { label: "Items", name: "items", widget: "list", label_singular: "Item",
+              fields:
+                - { label: "Title", name: "title", widget: "string" }
+                - { label: "Category", name: "category", widget: "select", options: ["Styling", "Design"] }
+                - { label: "Image", name: "image", widget: "image" }
+                - { label: "Description", name: "description", widget: "text" }
+            }
+
+  - name: "services"
+    label: "Services"
+    label_singular: "Service"
+    description: "Add, edit or remove the services listed on the Services page."
+    files:
+      - name: "services"
+        label: "Services list"
+        file: "data/services.json"
+        fields:
+          - { label: "Services", name: "items", widget: "list", label_singular: "Service",
+              fields:
+                - { label: "Title", name: "title", widget: "string" }
+                - { label: "Description", name: "description", widget: "text" }
+            }

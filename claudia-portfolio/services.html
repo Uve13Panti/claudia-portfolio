@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Claudia Jiménez</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="swatch-strip" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+<header class="site-header">
+  <a class="logo" href="index.html">Claudia Jiménez</a>
+  <nav class="pills" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html" aria-current="page">Services</a>
+    <a href="work.html">Work</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="section">
+    <p class="section-title">Services</p>
+    <div class="service-list" id="service-list">
+      <!-- injected by js/main.js from data/services.json -->
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Claudia Jiménez</span>
+    <span class="footer-meta">&copy; <span id="year"></span> Claudia Jiménez. All rights reserved.</span>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+<script src="js/main.js"></script>
+</body>
+</html>

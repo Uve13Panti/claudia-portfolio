@@ -1,0 +1,24 @@
+{
+"items": [
+  {
+    "title": "Personal Shopper",
+    "description": "One-to-one shopping sessions built around your body, your budget, and the life you actually lead — not a trend list."
+  },
+  {
+    "title": "Wardrobe Edit",
+    "description": "A full closet reset: what to keep, what to let go, and what's genuinely missing, so every piece earns its place."
+  },
+  {
+    "title": "Body Morphology Study",
+    "description": "A guided analysis of your shape and proportions, turned into practical rules you can use for every future purchase."
+  },
+  {
+    "title": "Event Styling",
+    "description": "From weddings to work galas — a look built for the occasion, the venue, and how you want to feel walking in."
+  },
+  {
+    "title": "Shooting Stylist",
+    "description": "On-set styling for editorial, campaign, or personal shoots — concept, garments, fittings, and continuity on the day."
+  }
+]
+}

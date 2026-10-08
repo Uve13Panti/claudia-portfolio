@@ -1,0 +1,518 @@
+/* ============================================
+   Claudia Jiménez — Portfolio
+   Palette + type sampled directly, pixel by pixel,
+   from Claudia's own reference screenshots:
+
+     cream        #FBF6E4   page background
+     burgundy     #5C1E29   logo, captions, primary text/headings
+     tan          #C4B48A   nav pill fill
+     olive        #6E6750   uppercase labels / nav text
+     rose         #B5657A   script accent heading ("About…")
+     rose-bg      #E6CCD0   About section wash
+     gold         #D9A054   accent pulled from the sunset/portfolio photos
+
+   Type:
+     Script   — 'Alex Brush'   (logo + decorative headings — same face,
+                                 just recoloured, exactly like the reference)
+     Labels   — 'Montserrat' 700  (nav, uppercase card headers)
+     Body     — 'Bree Serif'      (rounded slab used for all paragraph text)
+   ============================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Bree+Serif&family=Montserrat:wght@500;600;700;800&display=swap');
+
+:root {
+  --cream: #FBF6E4;
+  --cream-deep: #F1E6C8;
+  --burgundy: #5C1E29;
+  --burgundy-soft: #7A3B45;
+  --burgundy-deep: #3A1119;
+  --tan: #C4B48A;
+  --tan-deep: #AE9A69;
+  --olive: #6E6750;
+  --rose: #B5657A;
+  --rose-bg: #E6CCD0;
+  --gold: #D9A054;
+  --ink: #4A2430;
+  --ink-60: rgba(74, 36, 48, 0.62);
+  --line: rgba(74, 36, 48, 0.16);
+  --max-w: 1180px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Bree Serif', serif;
+  font-weight: 400;
+  font-size: 17px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+img { max-width: 100%; display: block; }
+
+h1, h2, h3 {
+  font-family: 'Bree Serif', serif;
+  font-weight: 400;
+  margin: 0 0 0.5em;
+  color: var(--ink);
+}
+
+p { margin: 0 0 1em; }
+
+.wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 40px; }
+
+.skip-link {
+  position: absolute; left: -999px; top: 0;
+  background: var(--burgundy); color: #fff;
+  padding: 10px 16px; z-index: 200;
+  font-family: 'Montserrat', sans-serif;
+}
+.skip-link:focus { left: 12px; top: 12px; }
+
+/* ---------- Decorative swatch strip — a stylist's colour story,
+   pulled straight from the real palette above, not invented. ---------- */
+.swatch-strip {
+  position: fixed;
+  left: 0; top: 0; bottom: 0;
+  width: 14px;
+  z-index: 50;
+  display: flex;
+  flex-direction: column;
+}
+.swatch-strip span { flex: 1; }
+.swatch-strip span:nth-child(1) { background: var(--burgundy); }
+.swatch-strip span:nth-child(2) { background: var(--gold); }
+.swatch-strip span:nth-child(3) { background: var(--rose); }
+.swatch-strip span:nth-child(4) { background: var(--tan); }
+.swatch-strip span:nth-child(5) { background: var(--olive); }
+
+@media (max-width: 700px) { .swatch-strip { display: none; } }
+
+/* ---------- Header / Nav ---------- */
+header.site-header {
+  padding: 32px 40px 32px 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-w);
+  margin: 0 auto;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.logo {
+  font-family: 'Alex Brush', cursive;
+  font-size: 3rem;
+  color: var(--burgundy);
+  line-height: 1;
+}
+
+nav.pills { display: flex; gap: 10px; flex-wrap: wrap; }
+
+nav.pills a {
+  font-family: 'Montserrat', sans-serif;
+  border: 1.5px solid var(--tan-deep);
+  border-radius: 999px;
+  padding: 10px 22px;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--olive);
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+nav.pills a:hover { border-color: var(--burgundy); color: var(--burgundy); }
+
+nav.pills a[aria-current="page"] {
+  background: var(--tan);
+  border-color: var(--tan);
+  color: #fff;
+}
+
+/* ---------- Hero ---------- */
+.hero {
+  max-width: var(--max-w);
+  margin: 6px auto 74px;
+  padding: 0 40px 0 54px;
+}
+
+.hero-frame {
+  position: relative;
+  border-radius: 3px;
+  overflow: hidden;
+  aspect-ratio: 16 / 8.4;
+  background: var(--cream-deep);
+}
+
+.hero-frame img { width: 100%; height: 100%; object-fit: cover; }
+
+.hero-caption {
+  position: absolute;
+  left: 36px; bottom: 32px;
+  max-width: 560px;
+  background: rgba(251, 246, 228, 0.95);
+  padding: 22px 34px;
+}
+
+.hero-caption p {
+  margin: 0;
+  font-family: 'Alex Brush', cursive;
+  font-size: clamp(1.8rem, 3.4vw, 2.4rem);
+  color: var(--burgundy);
+  line-height: 1.15;
+}
+
+/* ---------- Card grid (home links) ---------- */
+.card-grid {
+  max-width: var(--max-w);
+  margin: 0 auto 90px;
+  padding: 0 40px 0 54px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 42px 44px;
+}
+
+.card-link { display: block; }
+
+.card-link h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-align: left;
+  font-size: 1.05rem;
+  color: var(--olive);
+  margin: 0 0 16px;
+}
+
+.card-link .thumb {
+  border-radius: 2px;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--cream-deep);
+}
+
+.card-link:nth-child(1) .thumb { transform: rotate(-0.6deg); }
+.card-link:nth-child(2) .thumb { transform: rotate(0.5deg); }
+.card-link:nth-child(3) .thumb { transform: rotate(0.4deg); }
+.card-link:nth-child(4) .thumb { transform: rotate(-0.5deg); }
+
+.card-link .thumb img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.card-link:hover .thumb img { transform: scale(1.05); }
+
+/* ---------- Section shell ---------- */
+.section {
+  max-width: var(--max-w);
+  margin: 0 auto 90px;
+  padding: 0 40px 0 54px;
+}
+
+.section-title {
+  font-family: 'Alex Brush', cursive;
+  color: var(--rose);
+  font-size: 3.4rem;
+  margin-bottom: 30px;
+}
+
+/* ---------- About page ---------- */
+.about-block {
+  background: var(--rose-bg);
+  padding: 54px;
+  border-radius: 3px;
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 54px;
+  align-items: start;
+  position: relative;
+}
+
+.about-block img {
+  border: 4px solid var(--burgundy);
+  border-radius: 2px;
+}
+
+.about-copy p { color: var(--ink); }
+
+.pull-quote {
+  font-family: 'Alex Brush', cursive;
+  color: var(--burgundy);
+  font-size: 1.9rem;
+  line-height: 1.3;
+  border-left: 4px solid var(--gold);
+  padding-left: 22px;
+  margin: 30px 0 0;
+}
+
+.experience { margin-top: 70px; }
+
+.experience h2 {
+  font-family: 'Alex Brush', cursive;
+  color: var(--rose);
+  font-size: 2.6rem;
+}
+
+.exp-item {
+  padding: 26px 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 24px;
+}
+.exp-item:last-child { border-bottom: 1px solid var(--line); }
+
+.exp-item .exp-head { grid-column: 1; }
+
+.exp-item .role {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.98rem;
+  color: var(--burgundy);
+  margin-bottom: 6px;
+  line-height: 1.35;
+}
+
+.exp-item .company {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.exp-item p { margin: 0; color: var(--ink); }
+
+@media (max-width: 720px) {
+  .exp-item { grid-template-columns: 1fr; gap: 6px; }
+}
+
+/* ---------- Services page ---------- */
+.service-list { display: grid; gap: 0; }
+
+.service-item {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  gap: 26px;
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+}
+.service-item:last-child { border-bottom: 1px solid var(--line); }
+
+.service-item .num {
+  font-family: 'Alex Brush', cursive;
+  color: var(--num-color, var(--rose));
+  font-size: 2.2rem;
+  line-height: 1;
+}
+
+.service-item:nth-child(5n+1) .num { --num-color: var(--rose); }
+.service-item:nth-child(5n+2) .num { --num-color: var(--burgundy); }
+.service-item:nth-child(5n+3) .num { --num-color: var(--gold); }
+.service-item:nth-child(5n+4) .num { --num-color: var(--olive); }
+.service-item:nth-child(5n+5) .num { --num-color: var(--tan-deep); }
+
+.service-item h3 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.service-item p { color: var(--ink-60); margin: 0; max-width: 60ch; }
+
+/* ---------- Work page ---------- */
+.filters { display: flex; gap: 10px; margin-bottom: 36px; }
+
+.filters button {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border: 1.5px solid var(--tan-deep);
+  background: transparent;
+  border-radius: 999px;
+  padding: 10px 24px;
+  font-size: 0.74rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--olive);
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.filters button:hover { border-color: var(--burgundy); color: var(--burgundy); }
+
+.filters button.active {
+  background: var(--burgundy);
+  border-color: var(--burgundy);
+  color: var(--cream);
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.work-item {
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
+  aspect-ratio: 3 / 4;
+  background: var(--cream-deep);
+}
+
+.work-item img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.work-item:hover img { transform: scale(1.05); }
+
+.work-item .tag {
+  position: absolute; top: 14px; left: 14px;
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  font-size: 0.68rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  padding: 5px 13px;
+  border-radius: 999px;
+}
+.work-item[data-cat="Styling"] .tag { background: var(--burgundy); }
+.work-item[data-cat="Design"] .tag { background: var(--gold); }
+
+.work-item .caption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 18px;
+  background: linear-gradient(to top, rgba(58,17,25,0.88), transparent);
+  color: #fff;
+  font-family: 'Alex Brush', cursive;
+  font-size: 1.35rem;
+}
+
+/* ---------- Contact page ---------- */
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+
+.contact-info .label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.contact-info .value {
+  font-family: 'Bree Serif', serif;
+  font-size: 1.2rem;
+  color: var(--burgundy);
+  margin-bottom: 26px;
+}
+
+form.contact-form { display: grid; gap: 16px; }
+
+form.contact-form label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
+  color: var(--olive);
+  margin-bottom: 6px;
+}
+
+form.contact-form input,
+form.contact-form textarea {
+  width: 100%;
+  border: 1.5px solid var(--line);
+  background: #fff;
+  border-radius: 2px;
+  padding: 12px 14px;
+  font-family: 'Bree Serif', serif;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+form.contact-form input:focus,
+form.contact-form textarea:focus { outline: 2px solid var(--rose); outline-offset: 1px; }
+
+form.contact-form textarea { min-height: 130px; resize: vertical; }
+
+form.contact-form button {
+  justify-self: start;
+  background: var(--burgundy);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 13px 34px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+form.contact-form button:hover { background: var(--rose); }
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--burgundy-deep);
+  color: var(--cream-deep);
+  padding: 50px 40px 40px 54px;
+}
+
+footer .footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+footer .footer-logo {
+  font-family: 'Alex Brush', cursive;
+  font-size: 2.1rem;
+  color: var(--gold);
+}
+
+footer .footer-meta {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.02em;
+  color: rgba(241, 230, 200, 0.72);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 860px) {
+  .about-block { grid-template-columns: 1fr; }
+  .about-block img { width: 220px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .work-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  header.site-header { padding: 20px 22px; }
+  .hero, .section, .card-grid { padding-left: 22px; padding-right: 22px; }
+  .work-grid { grid-template-columns: 1fr; }
+  .hero-caption { left: 16px; right: 16px; padding: 16px 20px; }
+  footer { padding: 40px 22px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}

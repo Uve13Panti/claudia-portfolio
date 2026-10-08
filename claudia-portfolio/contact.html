@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Claudia Jiménez</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<div class="swatch-strip" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
+
+<header class="site-header">
+  <a class="logo" href="index.html">Claudia Jiménez</a>
+  <nav class="pills" aria-label="Main">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="services.html">Services</a>
+    <a href="work.html">Work</a>
+    <a href="contact.html" aria-current="page">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="section">
+    <p class="section-title">Contact</p>
+
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p class="label">Email</p>
+        <p class="value">hello@claudiajimenez.com</p>
+
+        <p class="label">Based in</p>
+        <p class="value">Linköping, Sweden</p>
+
+        <p class="label">Instagram</p>
+        <p class="value">@claudiajimenez</p>
+
+        <p>Whether you're planning a wardrobe edit, an event look, or need a stylist on set — tell me a bit about the project and I'll get back to you within a couple of days.</p>
+      </div>
+
+      <form class="contact-form" onsubmit="event.preventDefault(); alert('Thanks! This form is not yet connected — see the README for how to wire it up.');">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" required></textarea>
+        </div>
+        <button type="submit">Send message</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">Claudia Jiménez</span>
+    <span class="footer-meta">&copy; <span id="year"></span> Claudia Jiménez. All rights reserved.</span>
+  </div>
+</footer>
+<script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>

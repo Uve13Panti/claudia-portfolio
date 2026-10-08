@@ -1,0 +1,40 @@
+{
+"items": [
+  {
+    "title": "Barcelona Fashion Week",
+    "category": "Styling",
+    "image": "https://picsum.photos/seed/bfw1/700/900",
+    "description": "Backstage styling and look preparation during Barcelona Fashion Week."
+  },
+  {
+    "title": "Golden Hour Editorial",
+    "category": "Styling",
+    "image": "https://picsum.photos/seed/editorial1/700/900",
+    "description": "Personal shoot exploring texture and warm tones at sunset."
+  },
+  {
+    "title": "Hotel Uniform Collection",
+    "category": "Design",
+    "image": "https://picsum.photos/seed/uniform1/700/900",
+    "description": "A uniform collection designed for a boutique hotel, balancing comfort, function and brand identity."
+  },
+  {
+    "title": "Studio Portrait Series",
+    "category": "Styling",
+    "image": "https://picsum.photos/seed/portrait1/700/900",
+    "description": "Wardrobe styling for a natural-light studio portrait series."
+  },
+  {
+    "title": "Capsule Collection Sketches",
+    "category": "Design",
+    "image": "https://picsum.photos/seed/sketch1/700/900",
+    "description": "Technical drawings and garment specs from an early-stage capsule collection."
+  },
+  {
+    "title": "Client Wardrobe Edit",
+    "category": "Styling",
+    "image": "https://picsum.photos/seed/wardrobe1/700/900",
+    "description": "Before-and-after from a full wardrobe edit and reorganisation."
+  }
+]
+}
