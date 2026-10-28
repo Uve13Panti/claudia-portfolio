@@ -1,43 +1,52 @@
+# Login con GitHub (OAuth gestionado por Netlify).
+# Quien tenga acceso de escritura al repo puede entrar en tusitio.netlify.app/admin
 backend:
-  name: git-gateway
+  name: github
+  repo: Uve13Panti/claudia-portfolio
   branch: main
 
-media_folder: "images/uploads"
-public_folder: "/images/uploads"
+# Panel en español para Claudia
+locale: "es"
 
-# Once Netlify Identity + Git Gateway are enabled (see README),
-# Claudia logs in at yoursite.com/admin and edits everything below
-# through simple forms — no code, no GitHub.
+# El repo tiene los archivos dentro de la subcarpeta "claudia-portfolio",
+# por eso las rutas de guardado la incluyen. La ruta pública NO la incluye,
+# porque Netlify publica desde dentro de esa subcarpeta.
+media_folder: "claudia-portfolio/images/uploads"
+public_folder: "/images/uploads"
 
 collections:
   - name: "work"
     label: "Work / Portfolio"
-    label_singular: "Piece"
-    description: "Add or remove looks, shoots and design pieces shown on the Work page."
+    description: "Añade, edita o borra looks y piezas de diseño de la página Work."
     files:
       - name: "work"
-        label: "Portfolio items"
-        file: "data/work.json"
+        label: "Piezas del portfolio"
+        file: "claudia-portfolio/data/work.json"
         fields:
-          - { label: "Items", name: "items", widget: "list", label_singular: "Item",
-              fields:
-                - { label: "Title", name: "title", widget: "string" }
-                - { label: "Category", name: "category", widget: "select", options: ["Styling", "Design"] }
-                - { label: "Image", name: "image", widget: "image" }
-                - { label: "Description", name: "description", widget: "text" }
-            }
+          - label: "Piezas"
+            name: "items"
+            widget: "list"
+            label_singular: "Pieza"
+            summary: "{{fields.title}} ({{fields.category}})"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Categoría", name: "category", widget: "select", options: ["Styling", "Design"] }
+              - { label: "Imagen", name: "image", widget: "image" }
+              - { label: "Descripción", name: "description", widget: "text" }
 
   - name: "services"
     label: "Services"
-    label_singular: "Service"
-    description: "Add, edit or remove the services listed on the Services page."
+    description: "Añade, edita o borra los servicios de la página Services."
     files:
       - name: "services"
-        label: "Services list"
-        file: "data/services.json"
+        label: "Lista de servicios"
+        file: "claudia-portfolio/data/services.json"
         fields:
-          - { label: "Services", name: "items", widget: "list", label_singular: "Service",
-              fields:
-                - { label: "Title", name: "title", widget: "string" }
-                - { label: "Description", name: "description", widget: "text" }
-            }
+          - label: "Servicios"
+            name: "items"
+            widget: "list"
+            label_singular: "Servicio"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "Título", name: "title", widget: "string" }
+              - { label: "Descripción", name: "description", widget: "text" }
